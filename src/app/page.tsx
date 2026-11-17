@@ -1,9 +1,17 @@
 import { HeroSection } from "@/features/home/components/hero-section";
+import { Navbar } from "@/components/layout/navbar";
+import { AboutSection } from "@/features/home/components/about-section";
 
 export default function Home() {
   return (
-    <div>
-      <HeroSection />
+    <div id="info" data-menu-page>
+      <div data-menu-content>
+        <HeroSection />
+      </div>
+      <Navbar className="sticky top-6 z-50 -mt-20" />
+      <div data-menu-content>
+        <AboutSection />
+      </div>
     </div>
   );
 }

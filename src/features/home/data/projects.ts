@@ -1,0 +1,58 @@
+export const projects = [
+  {
+    name: "MAVEN 11",
+    client: "analogueagency",
+    description: "New web design for the blockchain investment fund Maven 11.",
+    src: "/images/projects/maven.png",
+    year: 2022,
+  },
+  {
+    name: "Wix Playground Homepage",
+    client: "Wix Playground",
+    description: "Wix Playground is powered by the Wix.com design team.",
+    src: "/images/projects/wix.png",
+    year: 2022,
+  },
+  {
+    name: "POWELL—STUDIO",
+    client: "POWELL—STUDIO",
+    description: "The online presence for Powell—Studio.",
+    src: "/images/projects/powell.png",
+    year: 2023,
+  },
+  {
+    name: "ROCKETPANDA",
+    client: "ROCKETPANDA",
+    description: "An Italian animation studio.",
+    src: "/images/projects/rocketpanda.png",
+    year: 2022,
+  },
+  {
+    name: "C2 Montreal",
+    client: "C2 Montreal",
+    description: "C2 Montréal is Canada's premier creative-business event.",
+    src: "/images/projects/c2mtl.png",
+    year: 2021,
+  },
+  {
+    name: "Design Is Funny",
+    client: "Design Is Funny",
+    description: "Funny is the design work of Daniele Buffa.",
+    src: "/images/projects/design-is-funny.png",
+    year: 2020,
+  },
+  {
+    name: "Google Pixel Creator Labs",
+    client: "Google Pixel Creator Labs",
+    description: "A partnership between Google & SN37.",
+    src: "/images/projects/creator-labs.png",
+    year: 2020,
+  },
+  {
+    name: "Decimal",
+    client: "Decimal",
+    description: "Portfolio site for Decimal.",
+    src: "/images/projects/decimal.png",
+    year: 2020,
+  },
+];

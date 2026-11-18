@@ -46,7 +46,7 @@ export async function FooterSection() {
               <a
                 href="tel:+6285900443036"
                 data-footer-fade
-                className="inline-block text-base uppercase"
+                className="inline-block text-xs md:text-base uppercase"
               >
                 +6285900443036
               </a>
@@ -60,7 +60,7 @@ export async function FooterSection() {
               <a
                 href="https://www.linkedin.com/in/rizky-aziz"
                 data-footer-fade
-                className="inline-block text-base uppercase"
+                className="inline-block text-xs md:text-base uppercase"
               >
                 @rizky-aziz
               </a>
@@ -72,7 +72,7 @@ export async function FooterSection() {
               <a
                 href="https://www.instagram.com/rizkyyazizz"
                 data-footer-fade
-                className="inline-block text-base uppercase"
+                className="inline-block text-xs md:text-base uppercase"
               >
                 @rizkyyazizz
               </a>

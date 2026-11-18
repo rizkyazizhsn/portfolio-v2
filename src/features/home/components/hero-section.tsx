@@ -8,16 +8,16 @@ export async function HeroSection() {
     <HeroAnimation>
       <div className="absolute inset-x-0 top-0 -z-10 pointer-events-none">
         <div className="grid grid-cols-1 md:grid-cols-[3fr_4fr_5fr] md:auto-cols-fr md:gap-6 w-full">
-          <div data-hero-image-origin className="relative w-full md:w-xl row-start-1 col-start-1 md:col-start-2 row-end-2 col-end-3">
+          <div data-hero-image-origin className="relative w-full md:w-xl aspect-[1792/2400] row-start-1 col-start-1 md:col-start-2 row-end-2 col-end-3">
             <div data-hero-image-motion className="relative h-full w-full origin-top-left">
               <div data-hero-image className="relative h-full w-full rounded-3xl overflow-hidden">
                 <Image
                   src="/images/hero-image-uncompress.jpeg"
                   alt="hero image"
-                  loading="eager"
-                  width={576}
-                  height={660}
-                  className="w-full h-full object-cover object-[center_70%] scale-110 brightness-75"
+                  priority
+                  fill
+                  sizes="(max-width: 767px) calc(100vw - 3rem), 576px"
+                  className="object-cover object-[center_70%] scale-110 brightness-75"
                 />
                 <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(to_bottom,rgba(0,0,0,0.7)_0%,transparent_35%,transparent_65%,rgba(0,0,0,0.7)_100%)]" />
               </div>
@@ -57,7 +57,7 @@ export async function HeroSection() {
               ntend</h1>
           </div>
           <div className="overflow-hidden md:-mt-5">
-            <h1 data-hero-title className="text-5xl md:text-9xl uppercase text-accent tracking-wide">Engineer</h1>
+            <h2 data-hero-title className="text-5xl md:text-9xl uppercase text-accent tracking-wide">Engineer</h2>
           </div>
         </div>
       </div>

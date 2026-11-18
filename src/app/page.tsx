@@ -36,7 +36,7 @@ const structuredData = {
 
 export default function Home() {
   return (
-    <div id="info" data-menu-page>
+    <main id="info" data-menu-page>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
@@ -48,10 +48,12 @@ export default function Home() {
       <div data-menu-content>
         <AboutSection />
         <WorkSection />
+        <SkillSection />
         <FooterSection />
       </div>
-    </div>
+    </main>
   );
 }
 import type { Metadata } from "next";
-import { site } from "@/lib/site";
+import { site } from "@/lib/site";import { SkillSection } from "@/features/home/components/skill-section";
+

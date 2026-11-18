@@ -1,6 +1,7 @@
 import { HeroSection } from "@/features/home/components/hero-section";
 import { Navbar } from "@/components/layout/navbar";
 import { AboutSection } from "@/features/home/components/about-section";
+import { WorkSection } from "@/features/home/components/work-section";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Navbar className="sticky top-6 z-50 -mt-20" />
       <div data-menu-content>
         <AboutSection />
+        <WorkSection />
       </div>
     </div>
   );

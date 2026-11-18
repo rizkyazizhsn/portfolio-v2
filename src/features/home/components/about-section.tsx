@@ -16,7 +16,7 @@ export function AboutSection() {
             <h6 data-about-title className="text-base uppercase">Ab<span className="font-playfair italic">o</span>ut Me</h6>
           </div>
         </div>
-        <div data-about-image-target aria-hidden="true" className="hidden md:block h-140 w-4/5 max-w-130 justify-self-center" />
+        <div data-about-image-target aria-hidden="true" className="hidden md:block h-140 w-4/5 max-w-130 justify-self-center transform -rotate-12" />
         <div className="flex flex-col">
           {stats.map((stat, index) => (
             <div data-about-row key={`${stat.label}-${index}`} className="flex justify-between py-8 relative">

@@ -102,7 +102,7 @@ export function ScrollTimeline({
       <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[1.2fr_1fr] md:gap-16">
         {/* year */}
         <div className="hidden md:block sticky top-24 z-20 bg-background py-4 md:top-[25vh] md:bg-transparent md:py-0">
-          <p className="mt-3 text-lg text-foreground/50 md:mt-8 md:text-3xl">
+          <p className="mt-3 text-lg text-accent/80 md:mt-8 md:text-3xl">
             Year {selectedIndex + 1}
           </p>
           <SlideNumber
@@ -136,7 +136,7 @@ export function ScrollTimeline({
                   key={item.id}
                   data-timeline-item
                   aria-current={index === selectedIndex ? "step" : undefined}
-                  className="relative py-4 md:min-h-[55svh] md:py-16 md:pl-8 border-t border-foreground/20 md:border-0"
+                  className="relative py-4 md:min-h-[10svh] md:py-16 md:pl-8 border-t border-foreground/20 md:border-0"
                 >
                   <span
                     aria-hidden="true"
@@ -144,7 +144,7 @@ export function ScrollTimeline({
                   />
                   <div data-timeline-content className="space-y-1 md:space-y-3">
                     <p className="text-3xl md:text-lg text-foreground font-medium md:font-normal md:text-foreground/50">
-                      {item.year}
+                      {item.year} { index === items.length -1 && '- Now' }
                     </p>
                     <h3
                       className={`text-3xl font-medium leading-tight md:text-5xl transition-colors ${index === selectedIndex ? "text-foreground" : "md:text-foreground/50"}`}

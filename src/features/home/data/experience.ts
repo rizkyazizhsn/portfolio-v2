@@ -27,14 +27,14 @@ export const experiences: TimelineItem[] = [
     description: "Remote · Bandung · Freelance",
   },
   {
-    id: "experience-2025",
-    year: 2025,
+    id: "experience-2022",
+    year: 2022,
     title: "Frontend Developer",
     description: "iCreativelabs · Bandung · In-house",
   },
   {
-    id: "experience-2026",
-    year: 2026,
+    id: "experience-2025",
+    year: 2025,
     title: "Frontend Engineer",
     description: "Kolabora Group · Bandung · In-house",
   },

@@ -54,7 +54,7 @@ export function FooterAnimation({ children }: { children: ReactNode }) {
   }, { scope: container });
 
   return (
-    <footer ref={container} id="contact" className="min-h-[50vh] relative">
+    <footer ref={container} id="contact" className="min-h-[50vh] relative md:pt-32">
       {children}
     </footer>
   );

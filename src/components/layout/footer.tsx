@@ -34,7 +34,7 @@ export async function FooterSection() {
               <a
                 href="mailto:rizkyaziz.hsn@gmail.com"
                 data-footer-fade
-                className="inline-block text-base uppercase"
+                className="inline-block text-xs md:text-base uppercase"
               >
                 rizkyaziz.hsn@gmail.com
               </a>

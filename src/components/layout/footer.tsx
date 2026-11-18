@@ -1,7 +1,8 @@
 import { FooterAnimation } from "./footer-animation";
+import { getCurrentYear } from "@/lib/current-year";
 
-export function FooterSection() {
-  const currentYear = new Date().getFullYear();
+export async function FooterSection() {
+  const currentYear = await getCurrentYear();
 
   return (
     <FooterAnimation>

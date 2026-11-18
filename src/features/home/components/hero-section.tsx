@@ -1,8 +1,9 @@
 import Image from "next/image";
+import { getCurrentYear } from "@/lib/current-year";
 import { HeroAnimation } from "./hero-animation";
 
 export async function HeroSection() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = await getCurrentYear();
   return (
     <HeroAnimation>
       <div className="absolute inset-x-0 top-0 -z-10 pointer-events-none">

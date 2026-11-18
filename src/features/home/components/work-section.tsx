@@ -92,14 +92,11 @@ function WorkGallery({ projects, reversed = false }: { projects: Project[]; reve
     if (!window.matchMedia("(min-width: 768px) and (hover: hover) and (pointer: fine)").matches) return;
 
     const { left, width } = event.currentTarget.getBoundingClientRect();
-
     if (width === 0) return;
-
     const progress = Math.max(0, Math.min(1, (event.clientX - left) / width));
     const animation = motion.current;
-    animation.target = reversed
-      ? (1 + progress) * 100 / 3
-      : (2 - progress) * 100 / 3;
+    // Reversed only changes the starting layout, never the hover direction.
+    animation.target = (2 - progress) * 100 / 3;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reducedMotion) {
@@ -152,10 +149,10 @@ function WorkGallery({ projects, reversed = false }: { projects: Project[]; reve
           <div
             key={project.src}
             ref={index === 0 ? firstImage : secondImage}
-            className="w-full min-w-0 shrink-0 md:w-[var(--gallery-width)]"
+            className="w-full min-w-0 shrink-0 md:w-(--gallery-width)"
             style={{ "--gallery-width": `${width}%` } as CSSProperties}
           >
-            <div className="relative aspect-[3/2]">
+            <div className="relative aspect-3/2">
               <Image
                 src={project.src}
                 fill
@@ -191,10 +188,10 @@ export function WorkSection() {
       <div className="overflow-hidden">
         <div
           data-work-reveal
-          className="text-[180px] uppercase text-center leading-tight"
+          className="text-6xl md:text-[180px] uppercase  leading-tight"
         >
           Selected W<span className="font-playfair italic">o</span>rks
-        </div>
+      </div>
       </div>
       {projectPairs.map((pair, index) => (
         <WorkGallery

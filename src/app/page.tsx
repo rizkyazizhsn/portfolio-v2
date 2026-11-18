@@ -2,6 +2,7 @@ import { HeroSection } from "@/features/home/components/hero-section";
 import { Navbar } from "@/components/layout/navbar";
 import { AboutSection } from "@/features/home/components/about-section";
 import { WorkSection } from "@/features/home/components/work-section";
+import { FooterSection } from "@/components/layout/footer";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <div data-menu-content>
         <AboutSection />
         <WorkSection />
+        <FooterSection />
       </div>
     </div>
   );

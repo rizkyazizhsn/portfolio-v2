@@ -11,7 +11,7 @@ export function AboutSection() {
   return (
     <AboutAnimation>
       <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr_3fr] md:auto-cols-fr md:gap-6 relative">
-        <div className="flex justify-between">
+        <div className="flex justify-between pb-8 md:pb-0">
           <div data-about-heading className="overflow-hidden">
             <h6 data-about-title className="text-base uppercase">Ab<span className="font-playfair italic">o</span>ut Me</h6>
           </div>
@@ -24,11 +24,12 @@ export function AboutSection() {
                 <h6 data-about-text className="uppercase">{ stat.label }</h6>
               </div>
               <div className="overflow-hidden">
-                <h6 data-about-text className="uppercase text-right">{ stat.value }</h6>
+                <h6 data-about-text className="uppercase text-right text-wrap">{ stat.value }</h6>
               </div>
               <div data-about-line className="h-px w-full bg-foreground/30 absolute inset-[0%_0%_auto]" />
             </div>
           ))}
+          <a data-about-button href="mailto:rizkyaziz.hsn@gmail.com" className="px-6 py-4 bg-accent w-fit rounded-xl text-black uppercase font-medium hover:bg-foreground cursor-pointer transition-colors">Get in T<span className="font-playfair italic">o</span>uch</a>
         </div>
       </div>
     </AboutAnimation>

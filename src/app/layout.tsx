@@ -84,7 +84,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col p-6">
         <SmoothScroll />
-        {/* <CursorTrail /> */}
+        <CursorTrail />
         {children}
       </body>
     </html>

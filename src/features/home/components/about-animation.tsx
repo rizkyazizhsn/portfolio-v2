@@ -38,6 +38,12 @@ export function AboutAnimation({ children }: { children: ReactNode }) {
             stagger: 0.08,
           }, start + 0.1);
       });
+
+      timeline.from("[data-about-button]", {
+        y: 30,
+        autoAlpha: 0,
+        duration: 0.7,
+      }, "-=0.3");
     });
     return () => media.revert();
   }, { scope: container });

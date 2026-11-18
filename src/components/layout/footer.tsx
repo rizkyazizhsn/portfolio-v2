@@ -83,7 +83,7 @@ export function FooterSection() {
           <div data-footer-track className="flex w-max">
             {[0, 1].map((copy) => (
               <div key={copy} aria-hidden={copy === 1 ? true : undefined}
-                className={`min-w-[100vw] shrink-0 pr-12 ${copy === 1 ? "motion-reduce:hidden" : ""}`}>
+                className={`min-w-screen shrink-0 pr-12 ${copy === 1 ? "motion-reduce:hidden" : ""}`}>
                 <h2 className="whitespace-nowrap text-6xl md:text-[200px] uppercase tracking-wide">
                   RizkyAziz
                   <span className="text-accent">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { site } from "@/lib/site";
 import localFont from "next/font/local";
 import { Roboto, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -72,8 +73,42 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rizky Aziz Portfolio",
-  description: "A portfolio website showcasing the work and projects of Rizky Aziz, a talented developer and designer.",
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: "%s | Rizky Aziz" },
+  description: site.description,
+  applicationName: "Rizky Aziz Portfolio",
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  category: "technology",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Rizky Aziz Portfolio",
+    title: site.title,
+    description: site.description,
+    url: site.url,
+    images: [{
+      url: "/images/og-preview.png",
+      width: 3296,
+      height: 1828,
+      type: "image/png",
+      alt: "Rizky Aziz — Frontend Engineer portfolio",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+    images: [{
+      url: "/images/og-preview.png",
+      alt: "Rizky Aziz — Frontend Engineer portfolio",
+    }],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -4,9 +4,43 @@ import { AboutSection } from "@/features/home/components/about-section";
 import { WorkSection } from "@/features/home/components/work-section";
 import { FooterSection } from "@/components/layout/footer";
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${site.url}/#person`,
+      name: site.name,
+      url: site.url,
+      jobTitle: "Frontend Engineer",
+      sameAs: [
+        "https://www.linkedin.com/in/rizky-aziz",
+        "https://www.instagram.com/rizkyyazizz",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      url: site.url,
+      name: "Rizky Aziz Portfolio",
+      description: site.description,
+      inLanguage: "en",
+      author: { "@id": `${site.url}/#person` },
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <div id="info" data-menu-page>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+      />
       <div data-menu-content>
         <HeroSection />
       </div>
@@ -19,3 +53,5 @@ export default function Home() {
     </div>
   );
 }
+import type { Metadata } from "next";
+import { site } from "@/lib/site";

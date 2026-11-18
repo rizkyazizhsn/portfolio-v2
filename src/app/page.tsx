@@ -49,6 +49,7 @@ export default function Home() {
         <AboutSection />
         <WorkSection />
         <SkillSection />
+        <ExperienceSection />
         <FooterSection />
       </div>
     </main>
@@ -56,4 +57,5 @@ export default function Home() {
 }
 import type { Metadata } from "next";
 import { site } from "@/lib/site";import { SkillSection } from "@/features/home/components/skill-section";
+import { ExperienceSection } from "@/features/home/components/experience";
 

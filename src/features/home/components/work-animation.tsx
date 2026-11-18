@@ -38,7 +38,7 @@ export function WorkAnimation({ children }: { children: ReactNode }) {
   }, { scope: container });
 
   return (
-    <section ref={container} id="work" className="relative md:pt-32 pb-32">
+    <section ref={container} id="work" className="relative md:pt-32 pb-10 md:pb-32">
       {children}
     </section>
   );

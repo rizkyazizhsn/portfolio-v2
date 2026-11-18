@@ -101,7 +101,7 @@ export function InfiniteMarquee({
                   key={index}
                   className="flex shrink-0 items-center gap-6 pr-8 md:gap-12 md:pr-12"
                 >
-                  <span className="whitespace-nowrap text-2xl text-foreground/60 md:text-3xl">
+                  <span className="whitespace-nowrap text-base text-foreground/60 md:text-3xl">
                     {item}
                   </span>
                   <span className="size-1.5 shrink-0 rounded-full bg-accent" />

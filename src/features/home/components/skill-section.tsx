@@ -4,6 +4,8 @@ const skills = [
   "Figma",
   "React",
   "Next.js",
+  "Vue",
+  "Nuxt",
   "TypeScript",
   "Github",
   "Tailwind CSS",
@@ -13,5 +15,5 @@ const skills = [
 ]
 
 export function SkillSection() {
-  return <InfiniteMarquee items={skills} className="mb-28" />
+  return <InfiniteMarquee items={skills} className="md:mb-28" />
 }

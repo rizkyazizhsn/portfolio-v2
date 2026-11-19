@@ -50,14 +50,14 @@ export async function HeroSection() {
         </div>
         <div data-hero-line className="h-px w-full bg-white/20" />
         {/* frontend engineer text */}
-        <div className="flex flex-col items-end">
+        <div data-hero-parallax className="flex flex-col items-end">
           <div className="overflow-hidden">
-            <h1 data-hero-title className="text-6xl md:text-[200px] uppercase tracking-wide">Fr
+            <h1 data-hero-title className="text-6xl md:text-[12vw] uppercase tracking-wide">Fr
               <span className="font-playfair italic">o</span>
               ntend</h1>
           </div>
           <div className="overflow-hidden md:-mt-5">
-            <h2 data-hero-title className="text-5xl md:text-9xl uppercase text-accent tracking-wide">Engineer</h2>
+            <h2 data-hero-title className="text-5xl md:text-[7.6vw] uppercase text-accent tracking-wide">Engineer</h2>
           </div>
         </div>
       </div>

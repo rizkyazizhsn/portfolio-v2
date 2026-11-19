@@ -14,6 +14,19 @@ export function HeroAnimation({ children }: { children: ReactNode }) {
     const media = gsap.matchMedia();
 
     media.add("(prefers-reduced-motion: no-preference)", () => {
+      // Animate the outer wrapper so the title reveal keeps its own transform.
+      gsap.fromTo("[data-hero-parallax]", { y: 0 }, {
+        y: () => -Math.min(window.innerHeight * 0.06, 56),
+        ease: "none",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.6,
+          invalidateOnRefresh: true,
+        },
+      });
+
       gsap.timeline({ defaults: { ease: "power3.out" } })
         .from("[data-hero-fade]", {
           y: 30,

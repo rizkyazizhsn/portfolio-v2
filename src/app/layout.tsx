@@ -4,6 +4,7 @@ import "./globals.css";
 import { SmoothScroll } from "@/components/animations/smooth-scroll";
 import { geistMono, playfairDisplay, ppneumontreal, roboto } from "@/lib/fonts";
 import { CursorTrail } from "@/components/animations/cursor-trail";
+import { FooterSection } from "@/components/layout/footer";
 
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SmoothScroll />
         <CursorTrail />
         {children}
+        <FooterSection />
       </body>
     </html>
   );

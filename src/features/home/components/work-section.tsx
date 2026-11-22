@@ -13,18 +13,18 @@ export function WorkSection() {
   return (
     <WorkAnimation>
       <h6 data-work-fade className="uppercase">
-        the w<span className="font-playfair italic">o</span>k I d
-        <span className="font-playfair italic">o</span>, and business I help.
+        the w<span className="playfair-0">o</span>k I d
+        <span className="playfair-0">o</span>, and business I help.
       </h6>
-      <div className="overflow-hidden">
+      <div data-work-parallax className="overflow-hidden">
         <div
           data-work-reveal
           className="text-6xl md:text-[180px] uppercase  leading-tight"
         >
-          Selected W<span className="font-playfair italic">o</span>rks
+          Selected W<span className="playfair-0">o</span>rks
       </div>
       </div>
-      {projectPairs.map((pair, index) => (
+      {projectPairs.slice(0, 6).map((pair, index) => (
         <WorkGallery
           key={pair[0].src}
           projects={pair}

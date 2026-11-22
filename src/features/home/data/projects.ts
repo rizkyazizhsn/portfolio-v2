@@ -1,6 +1,7 @@
 export const projects = [
   {
     name: "MAVEN 11",
+    slug: "maven-11",
     client: "analogueagency",
     description: "New web design for the blockchain investment fund Maven 11.",
     src: "/images/projects/maven.png",
@@ -8,6 +9,7 @@ export const projects = [
   },
   {
     name: "Wix Playground Homepage",
+    slug: "wix-playground-homepage",
     client: "Wix Playground",
     description: "Wix Playground is powered by the Wix.com design team.",
     src: "/images/projects/wix.png",
@@ -15,6 +17,7 @@ export const projects = [
   },
   {
     name: "POWELL—STUDIO",
+    slug: "powell-studio",
     client: "POWELL—STUDIO",
     description: "The online presence for Powell—Studio.",
     src: "/images/projects/powell.png",
@@ -22,6 +25,7 @@ export const projects = [
   },
   {
     name: "ROCKETPANDA",
+    slug: "rocketpanda",
     client: "ROCKETPANDA",
     description: "An Italian animation studio.",
     src: "/images/projects/rocketpanda.png",
@@ -29,6 +33,7 @@ export const projects = [
   },
   {
     name: "C2 Montreal",
+    slug: "c2-montreal",
     client: "C2 Montreal",
     description: "C2 Montréal is Canada's premier creative-business event.",
     src: "/images/projects/c2mtl.png",
@@ -36,6 +41,7 @@ export const projects = [
   },
   {
     name: "Design Is Funny",
+    slug: "design-is-funny",
     client: "Design Is Funny",
     description: "Funny is the design work of Daniele Buffa.",
     src: "/images/projects/design-is-funny.png",
@@ -43,6 +49,7 @@ export const projects = [
   },
   {
     name: "Google Pixel Creator Labs",
+    slug: "google-pixel-creator-labs",
     client: "Google Pixel Creator Labs",
     description: "A partnership between Google & SN37.",
     src: "/images/projects/creator-labs.png",
@@ -50,6 +57,7 @@ export const projects = [
   },
   {
     name: "Decimal",
+    slug: "decimal",
     client: "Decimal",
     description: "Portfolio site for Decimal.",
     src: "/images/projects/decimal.png",

@@ -8,24 +8,24 @@ export async function FooterSection() {
     <FooterAnimation>
       <div className="absolute -z-10 aspect-square bg-accent blur-[10rem] w-[60vw] h-full inset-[0_0_-50%_-10%] opacity-20" />
       {/* header top */}
-      <div className="flex items-center justify-between">
+      <div className="flex-between">
         <h6 data-footer-fade className="inline-block text-base uppercase">
           RizkyAziz.w
-          <span className="font-playfair italic">o</span>
+          <span className="playfair-0">o</span>
           rk
         </h6>
         <h6 data-footer-fade className="inline-block text-base uppercase">
-          P<span className="font-playfair italic">o</span>
+          P<span className="playfair-0">o</span>
           rtf
-          <span className="font-playfair italic">o</span>
+          <span className="playfair-0">o</span>
           li
-          <span className="font-playfair italic">o</span>
+          <span className="playfair-0">o</span>
           <span className="ps-1">{currentYear}</span>
         </h6>
       </div>
       {/* header bottom */}
       <div className="header-bottom flex flex-col justify-between gap-8 mt-36">
-        <div className="flex items-center justify-between">
+        <div className="flex-between">
           <div className="flex flex-col gap-6">
             <div className="space-y-1 flex flex-col">
               <h6 data-footer-fade className="inline-block text-base uppercase">
@@ -88,7 +88,7 @@ export async function FooterSection() {
                 <h2 className="whitespace-nowrap text-6xl md:text-[200px] uppercase tracking-wide">
                   RizkyAziz
                   <span className="text-accent">
-                    .W<span className="font-playfair italic">o</span>rk
+                    .W<span className="playfair-0">o</span>rk
                   </span>
                 </h2>
               </div>

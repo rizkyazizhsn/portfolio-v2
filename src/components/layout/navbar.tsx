@@ -133,7 +133,7 @@ export function Navbar({ className = "" }: { className?: string }) {
 
   return (
     <>
-      <nav ref={toolbar} className={`z-50 flex items-center justify-between ${className}`}>
+      <nav ref={toolbar} className={`z-50 flex-between ${className}`}>
         <a href="#info" onClick={close} aria-label="Rizky Aziz — home" className={buttonClass}>RA.</a>
         <button ref={menuButton} type="button" aria-haspopup="dialog" aria-expanded={open} aria-controls={dialogId}
           onClick={() => setOpen((value) => !value)} className={`${buttonClass} flex items-center gap-3`}>
@@ -154,7 +154,7 @@ export function Navbar({ className = "" }: { className?: string }) {
                   <a data-menu-link href={href} onClick={close}
                     className="block font-ppneumontreal text-[clamp(3rem,min(12vw,15dvh),10rem)] leading-none tracking-tight uppercase hover:text-[#C8FF5F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C8FF5F]">
                     {label.split(/(O)/).map((part, index) => part === "O"
-                      ? <span key={index} className="font-playfair italic">{part}</span>
+                      ? <span key={index} className="playfair-0">{part}</span>
                       : part)}
                   </a>
                 </li>

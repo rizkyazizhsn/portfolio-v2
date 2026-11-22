@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image";
+import Link from "next/link";
 import { CSSProperties, MouseEvent, useEffect, useRef } from "react";
 import { projects } from "../data/projects";
 
@@ -81,7 +82,7 @@ export function WorkGallery({ projects, reversed = false }: { projects: Project[
   };
 
   return (
-    <div onMouseMove={isPair ? manageMouseMove : undefined} className="flex flex-col items-start gap-8 mt-8 md:mt-[10vh] md:flex-row md:gap-0">
+    <div onMouseMove={isPair ? manageMouseMove : undefined} className="flex flex-col items-start gap-8 mt-8 md:mt-[5vh] md:flex-row md:gap-0">
       {projects.map((project, index) => {
         const firstWidth = reversed ? 100 / 3 : 200 / 3;
         const width = isPair ? (index === 0 ? firstWidth : 100 - firstWidth) : 100;
@@ -93,6 +94,7 @@ export function WorkGallery({ projects, reversed = false }: { projects: Project[
             className="w-full min-w-0 shrink-0 md:w-(--gallery-width)"
             style={{ "--gallery-width": `${width}%` } as CSSProperties}
           >
+            <Link href={`/projects/${project.slug}`} className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
             <div className="relative aspect-3/2">
               <Image
                 src={project.src}
@@ -107,6 +109,7 @@ export function WorkGallery({ projects, reversed = false }: { projects: Project[
               <p>{project.description}</p>
               <p>{project.year}</p>
             </div>
+            </Link>
           </div>
         );
       })}

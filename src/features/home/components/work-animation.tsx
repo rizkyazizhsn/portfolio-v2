@@ -13,6 +13,18 @@ export function WorkAnimation({ children }: { children: ReactNode }) {
   useGSAP(() => {
     const media = gsap.matchMedia();
     media.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.fromTo("[data-work-parallax]", { y: 0 }, {
+        y: () => -Math.min(window.innerHeight * 0.06, 56),
+        ease: "none",
+        scrollTrigger: {
+          trigger: container.current?.querySelector("[data-work-parallax]"),
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 0.6,
+          invalidateOnRefresh: true
+        }
+      })
+
       gsap.timeline({
         defaults: { ease: "power3.out" },
         scrollTrigger: {

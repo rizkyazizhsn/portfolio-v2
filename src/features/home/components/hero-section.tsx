@@ -26,25 +26,25 @@ export async function HeroSection() {
         </div>
       </div>
       {/* header top */}
-      <div className="flex items-center justify-between">
+      <div className="flex-between">
         <h6 data-hero-fade className="text-base uppercase">
           RizkyAziz.w
-          <span className="font-playfair italic">o</span>
+          <span className="playfair-0">o</span>
           rk
         </h6>
         <h6 data-hero-fade className="text-base uppercase">
           P
-          <span className="font-playfair italic">o</span>
+          <span className="playfair-0">o</span>
           rtf
-          <span className="font-playfair italic">o</span>
+          <span className="playfair-0">o</span>
           li
-          <span className="font-playfair italic">o</span>
+          <span className="playfair-0">o</span>
           <span className="ps-1">{ currentYear }</span>
         </h6>
       </div>
       {/* header bottom */}
       <div className="header-bottom flex flex-col justify-between gap-8">
-        <div className="flex items-center justify-between">
+        <div className="flex-between">
           <h6 data-hero-fade className="hidden md:block text-base uppercase">hi there</h6>
           <h6 data-hero-fade className="text-xs md:text-base uppercase">I build thoughtful interfaces with precision, <br /> personality, and a focus on how they feel.</h6>
         </div>
@@ -53,7 +53,7 @@ export async function HeroSection() {
         <div data-hero-parallax className="flex flex-col items-end">
           <div className="overflow-hidden">
             <h1 data-hero-title className="text-6xl md:text-[12vw] uppercase tracking-wide">Fr
-              <span className="font-playfair italic">o</span>
+              <span className="playfair-0">o</span>
               ntend</h1>
           </div>
           <div className="overflow-hidden md:-mt-5">

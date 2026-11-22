@@ -2,6 +2,7 @@ import { HeroSection } from "@/features/home/components/hero-section";
 import { Navbar } from "@/components/layout/navbar";
 import { AboutSection } from "@/features/home/components/about-section";
 import { WorkSection } from "@/features/home/components/work-section";
+import { ContactSection } from "@/features/home/components/contact-section";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -49,6 +50,7 @@ export default function Home() {
         <WorkSection />
         <SkillSection />
         <ExperienceSection />
+        <ContactSection />
       </div>
     </main>
   );

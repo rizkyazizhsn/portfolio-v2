@@ -1,13 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { SectionReveal } from "@/components/animations/section-reveal";
 
 const email = "rizkyaziz.hsn@gmail.com";
-const socials = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/rizky-aziz" },
-  { label: "Instagram", href: "https://www.instagram.com/rizkyyazizz" },
-];
 const focusClass = "focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent";
 
 function Arrow({ className = "" }: { className?: string }) {
@@ -19,23 +15,11 @@ function Arrow({ className = "" }: { className?: string }) {
 }
 
 export function ContactSection() {
-  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">("idle");
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => () => {
     if (resetTimer.current) clearTimeout(resetTimer.current);
   }, []);
-
-  const copyEmail = async () => {
-    if (resetTimer.current) clearTimeout(resetTimer.current);
-    try {
-      await navigator.clipboard.writeText(email);
-      setCopyStatus("copied");
-    } catch {
-      setCopyStatus("error");
-    }
-    resetTimer.current = setTimeout(() => setCopyStatus("idle"), 3000);
-  };
 
   return (
     <SectionReveal id="contact" className="relative isolate scroll-mt-28 py-20 md:py-32" stagger={0.12}>
@@ -44,7 +28,7 @@ export function ContactSection() {
       {/* <div data-animate="line" className="h-px w-full bg-foreground/20" /> */}
       <div data-animate="fade-up" className="flex-between gap-6 pt-6 text-xs uppercase md:text-sm">
         <p>Get in t<span className="playfair-0">o</span>uch</p>
-        <p className="text-foreground">A good conversation is a good start.</p>
+        <p className="text-foreground">A g<span className="playfair-0">oo</span>d c<span className="playfair-0">o</span>nversati<span className="playfair-0">o</span>n is a g<span className="playfair-0">oo</span>d start.</p>
       </div>
 
       <div className="grid items-end gap-10 py-16 md:grid-cols-[1fr_auto] md:py-24">
@@ -56,7 +40,7 @@ export function ContactSection() {
           </div>
           <div className="overflow-hidden pb-2">
             <p data-animate="reveal-up" className="text-[clamp(3rem,8.5vw,10rem)] leading-[1.05] tracking-tight uppercase text-accent">
-              Something g<span className="playfair-0">oo</span>d.
+              S<span className="playfair-0">o</span>mething g<span className="playfair-0">oo</span>d.
             </p>
           </div>
         </div>
@@ -75,31 +59,8 @@ export function ContactSection() {
           <a href={`mailto:${email}`} className={`block break-all text-xl decoration-foreground/25 underline-offset-8 hover:text-accent hover:decoration-accent md:text-3xl ${focusClass}`}>
             {email}
           </a>
-          {/* <button type="button" onClick={copyEmail}
-            className={`mt-5 inline-flex items-center gap-2 rounded-full border border-foreground/20 px-4 py-2 text-xs uppercase hover:border-accent hover:text-accent ${focusClass}`}>
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="size-4">
-              <rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V4H4v12h4" />
-            </svg>
-            {copyStatus === "copied" ? "Email copied" : "Copy email"}
-          </button>
-          <p role="status" className="mt-3 min-h-5 text-sm text-foreground/60">
-            {copyStatus === "copied" ? "Copied to clipboard." : copyStatus === "error" ? "Copy unavailable. Select the email address above to copy it." : ""}
-          </p> */}
         </div>
       </div>
-
-      {/* <div data-animate="line" className="h-px w-full bg-foreground/20" />
-      <div data-animate="fade-up" className="flex flex-wrap items-center justify-between gap-6 pt-6 text-sm">
-        <p className="text-foreground/50">Tangerang, Indonesia</p>
-        <div className="flex flex-wrap gap-6 md:gap-8">
-          {socials.map((social) => (
-            <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer"
-              className={`group flex items-center gap-2 hover:text-accent ${focusClass}`}>
-              {social.label}<Arrow className="size-4 motion-safe:transition-transform motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5" />
-            </a>
-          ))}
-        </div>
-      </div> */}
     </SectionReveal>
   );
 }

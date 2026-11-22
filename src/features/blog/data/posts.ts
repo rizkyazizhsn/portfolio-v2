@@ -4,12 +4,14 @@ export type BlogPost = {
   title: string;
   excerpt: string;
   preview: string;
+  date: string;
 };
 
 // Sample draft notes. Replace with your articles when they are ready to publish.
 export const posts: BlogPost[] = [
   {
     slug: "motion-with-purpose",
+    date: "2026-11-23",
     category: "Motion",
     title: "Making interfaces feel as good as they look.",
     excerpt: "Small transitions, clear feedback, and the details that make an interface feel natural.",
@@ -17,6 +19,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "building-reusable-interfaces",
+    date: "2026-11-20",
     category: "Engineering",
     title: "Reusable components. Room for personality.",
     excerpt: "Finding the balance between shared patterns and interfaces with a character of their own.",
@@ -24,6 +27,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "details-that-ship",
+    date: "2026-11-18",
     category: "Craft",
     title: "The details between design and production.",
     excerpt: "A closer look at responsive layouts, keyboard navigation, and the states beyond the mockup.",

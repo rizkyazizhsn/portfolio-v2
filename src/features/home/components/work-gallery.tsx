@@ -3,9 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CSSProperties, MouseEvent, useEffect, useRef } from "react";
-import { projects } from "../data/projects";
+import type { Project } from "@/features/projects/types";
 
-type Project = (typeof projects)[number]; 
+
 
 export function WorkGallery({ projects, reversed = false }: { projects: Project[]; reversed?: boolean }) {
   const firstImage = useRef<HTMLDivElement>(null);
@@ -25,10 +25,10 @@ export function WorkGallery({ projects, reversed = false }: { projects: Project[
       animation.previousTime = null;
     };
   }, []);
-  
+
   const isPair = projects.length === 2;
   if (projects.length === 0) return null;
-  
+
   const manageMouseMove = (event: MouseEvent<HTMLDivElement>) => {
     if (!isPair || !firstImage.current || !secondImage.current) return;
     if (!window.matchMedia("(min-width: 768px) and (hover: hover) and (pointer: fine)").matches) return;

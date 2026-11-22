@@ -28,6 +28,26 @@ export function CursorTrail() {
       let lastMovement = 0;
       gsap.set(dots, { xPercent: -50, yPercent: -50 });
 
+      // Create animations inside the media context, then reuse them in events.
+      // This keeps cleanup scoped without recording a new tween every frame.
+      const hoverTween = gsap.to(dots[0], {
+        scale: 1.8,
+        duration: 0.25,
+        paused: true,
+      });
+      const showTween = gsap.to(root, {
+        autoAlpha: 1,
+        duration: 0.15,
+        paused: true,
+      });
+      const fadeTween = gsap.to(root, {
+        autoAlpha: 0,
+        duration: 0.4,
+        ease: "power2.out",
+        paused: true,
+        onComplete: () => hide(),
+      });
+
       const draw = () => {
         setters[0].x(positions[0].x);
         setters[0].y(positions[0].y);
@@ -61,10 +81,11 @@ export function CursorTrail() {
         visible = false;
         hovering = false;
         fading = false;
-        gsap.killTweensOf(root);
-        gsap.set(root, { autoAlpha: 0 });
-        gsap.killTweensOf(dots);
-        gsap.set(dots[0], { scale: 1 });
+        showTween.pause();
+        fadeTween.pause();
+        hoverTween.pause(0);
+        root.style.opacity = "0";
+        root.style.visibility = "hidden";
       };
       const move = (event: PointerEvent) => {
         if (event.pointerType !== "mouse") return;
@@ -79,31 +100,29 @@ export function CursorTrail() {
           });
           draw();
           visible = true;
-          gsap.set(root, { autoAlpha: 1 });
+          root.style.opacity = "1";
+          root.style.visibility = "visible";
         }
         if (fading) {
           fading = false;
-          gsap.to(root, { autoAlpha: 1, duration: 0.15, overwrite: true });
+          fadeTween.pause();
+          showTween.invalidate().restart();
         }
         const nextHover = event.target instanceof Element && Boolean(
           event.target.closest("a, button, [role='button'], input, textarea, select, [data-cursor-hover]"),
         );
         if (nextHover !== hovering) {
           hovering = nextHover;
-          gsap.to(dots[0], { scale: hovering ? 1.8 : 1, duration: 0.25, overwrite: true });
+          if (hovering) hoverTween.play();
+          else hoverTween.reverse();
         }
       };
       const tick = () => {
         if (!visible) return;
         if (!fading && performance.now() - lastMovement > 450) {
           fading = true;
-          gsap.to(root, {
-            autoAlpha: 0,
-            duration: 0.4,
-            ease: "power2.out",
-            overwrite: true,
-            onComplete: hide,
-          });
+          showTween.pause();
+          fadeTween.invalidate().restart();
         }
         const blend = 1 - Math.pow(0.7, gsap.ticker.deltaRatio());
         positions.forEach((position, index) => {
@@ -126,6 +145,9 @@ export function CursorTrail() {
         document.removeEventListener("visibilitychange", visibilityChange);
         gsap.ticker.remove(tick);
         hide();
+        hoverTween.kill();
+        showTween.kill();
+        fadeTween.kill();
       };
     });
     return () => media.revert();

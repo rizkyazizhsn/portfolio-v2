@@ -79,13 +79,16 @@ export function HeroAnimation({ children }: { children: ReactNode }) {
           invalidateOnRefresh: true,
         },
       });
-      transition.fromTo(image, { x: 0, y: 0, width: "100%", height: "100%" }, {
-        x: () => geometry().x,
-        y: () => geometry().y,
-        width: () => geometry().width,
-        height: () => geometry().height,
-        duration: 1,
-      }, 0);
+      transition.fromTo(
+        image,
+        { x: 0, y: 0, width: "100%", height: "100%" },
+        {
+          x: () => geometry().x,
+          y: () => geometry().y,
+          width: () => geometry().width,
+          height: () => geometry().height,
+          duration: 1,
+        }, 0);
       if (photo) {
         transition.fromTo(photo, { objectPosition: "50% 70%", scale: 1.1 }, {
           objectPosition: "50% 100%",

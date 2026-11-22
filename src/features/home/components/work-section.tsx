@@ -1,10 +1,11 @@
-"use client"
-
+import { animationPresets } from "@/lib/animation/config";
 import { WorkAnimation } from "./work-animation";
-import { projects } from "../data/projects";
+import { projects } from "@/features/projects/data/projects";
 import { WorkGallery } from "./work-gallery";
+import { SectionLink } from "@/components/ui/section-link";
 
 export function WorkSection() {
+  const timing = animationPresets.work;
   const projectPairs = Array.from(
     { length: Math.ceil(projects.length / 2) },
     (_, index) => projects.slice(index * 2, index * 2 + 2),
@@ -12,13 +13,13 @@ export function WorkSection() {
 
   return (
     <WorkAnimation>
-      <h6 data-work-fade className="uppercase">
+      <h6 data-animate="fade-up" data-animate-at={0} data-animate-duration={timing.fadeDuration} className="uppercase">
         the w<span className="playfair-0">o</span>k I d
         <span className="playfair-0">o</span>, and business I help.
       </h6>
-      <div data-work-parallax className="overflow-hidden">
+      <div className="overflow-hidden">
         <div
-          data-work-reveal
+          data-animate="reveal-up" data-animate-from={100} data-animate-at={timing.titleStart} data-animate-duration={timing.titleDuration}
           className="text-6xl md:text-[180px] uppercase  leading-tight"
         >
           Selected W<span className="playfair-0">o</span>rks
@@ -31,6 +32,9 @@ export function WorkSection() {
           reversed={index % 2 !== 0}
         />
       ))}
+      <div data-animate="fade-up" className="mt-10 flex justify-end md:mt-14">
+        <SectionLink href="/projects">All projects</SectionLink>
+      </div>
     </WorkAnimation>
   );
 }

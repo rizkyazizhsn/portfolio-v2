@@ -26,7 +26,9 @@ export function InfiniteMarquee({
       const media = gsap.matchMedia();
 
       media.add("(prefers-reduced-motion: no-preference)", () => {
-        const loopDuration = Math.max(1, duration)
+        const root = container.current;
+        if (!root || !track.current || !items.length) return;
+        const loopDuration = Math.max(1, duration);
 
         const marquee = gsap.fromTo(
           track.current,
@@ -36,31 +38,58 @@ export function InfiniteMarquee({
             duration: loopDuration,
             repeat: -1,
             ease: "none",
+            paused: true,
           },
         );
 
-        marquee.totalTime(loopDuration * 100)
+        marquee.totalTime(loopDuration * 100);
 
         marquee.eventCallback("onReverseComplete", () => {
-          marquee.totalTime(loopDuration * 100)
-        })
+          marquee.totalTime(loopDuration * 100);
+        });
 
-        let direction = 1
+        let direction = 1;
+        let visible = false;
+        let directionTween: gsap.core.Tween | null = null;
 
-        ScrollTrigger.create({
+        const directionTrigger = ScrollTrigger.create({
           onUpdate: (self) => {
-            if (self.direction === direction) return
+            if (self.direction === direction) return;
 
-            direction = self.direction
+            direction = self.direction;
+            directionTween?.kill();
+            if (!visible) {
+              marquee.timeScale(direction);
+              return;
+            }
 
-            gsap.to(marquee, {
+            directionTween = gsap.to(marquee, {
               timeScale: direction,
               duration: 0.4,
               ease: "power2.out",
-              overwrite: true
-            })
+              overwrite: true,
+            });
+          },
+        });
+
+        const observer = new IntersectionObserver(([entry]) => {
+          visible = entry.isIntersecting;
+          if (visible) {
+            // resume() preserves the last scroll direction, including reverse.
+            marquee.resume();
+          } else {
+            directionTween?.kill();
+            marquee.timeScale(direction).pause();
           }
-        })
+        });
+        observer.observe(root);
+
+        return () => {
+          observer.disconnect();
+          directionTrigger.kill();
+          directionTween?.kill();
+          marquee.kill();
+        };
       });
 
       return () => media.revert();

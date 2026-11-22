@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { projects } from "@/features/home/data/projects";
+import { projects } from "@/features/projects/data/projects";
 
 export function generateStaticParams() {
   return projects.map(({ slug }) => ({ slug }));

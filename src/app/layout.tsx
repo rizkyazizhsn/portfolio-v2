@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import "./globals.css";
-import { SmoothScroll } from "@/components/animations/smooth-scroll";
+import { SmoothScroll } from "@/providers/smooth-scroll";
 import { geistMono, playfairDisplay, ppneumontreal, roboto } from "@/lib/fonts";
 import { CursorTrail } from "@/components/animations/cursor-trail";
 import { FooterSection } from "@/components/layout/footer";
@@ -53,10 +53,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${roboto.variable} ${ppneumontreal.variable} ${geistMono.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col p-6">
-        <SmoothScroll />
-        {/* <CursorTrail /> */}
-        {children}
-        <FooterSection />
+        <SmoothScroll>
+          {/* <CursorTrail /> */}
+          {children}
+          <FooterSection />
+        </SmoothScroll>
       </body>
     </html>
   );

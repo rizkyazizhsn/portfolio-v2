@@ -1,57 +1,10 @@
-"use client";
-
-import { useRef, type ReactNode } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+import type { ReactNode } from "react";
+import { SectionReveal } from "@/components/animations/section-reveal";
 
 export function WorkAnimation({ children }: { children: ReactNode }) {
-  const container = useRef<HTMLElement>(null);
-
-  useGSAP(() => {
-    const media = gsap.matchMedia();
-    media.add("(prefers-reduced-motion: no-preference)", () => {
-      gsap.fromTo("[data-work-parallax]", { y: 0 }, {
-        y: () => -Math.min(window.innerHeight * 0.06, 56),
-        ease: "none",
-        scrollTrigger: {
-          trigger: container.current?.querySelector("[data-work-parallax]"),
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 0.6,
-          invalidateOnRefresh: true
-        }
-      })
-
-      gsap.timeline({
-        defaults: { ease: "power3.out" },
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top 70%",
-          once: true,
-        },
-      })
-        .from("[data-work-fade]", {
-          y: 30,
-          autoAlpha: 0,
-          duration: 0.7,
-          stagger: 0.1,
-        }, 0)
-        .from("[data-work-reveal]", {
-          yPercent: 110,
-          duration: 1,
-          stagger: 0.12,
-        }, 0.2);
-    });
-
-    return () => media.revert();
-  }, { scope: container });
-
   return (
-    <section ref={container} id="work" className="relative md:pt-32 pb-10 md:pb-32">
+    <SectionReveal id="work" className="relative md:pt-32 pb-10 md:pb-32">
       {children}
-    </section>
+    </SectionReveal>
   );
 }

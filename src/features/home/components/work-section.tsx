@@ -6,9 +6,10 @@ import { SectionLink } from "@/components/ui/section-link";
 
 export function WorkSection() {
   const timing = animationPresets.work;
+  const selectedProjects = projects.slice(0, 6)
   const projectPairs = Array.from(
-    { length: Math.ceil(projects.length / 2) },
-    (_, index) => projects.slice(index * 2, index * 2 + 2),
+    { length: Math.ceil(selectedProjects.length / 2) },
+    (_, index) => selectedProjects.slice(index * 2, index * 2 + 2),
   );
 
   return (
@@ -25,7 +26,7 @@ export function WorkSection() {
           Selected W<span className="playfair-0">o</span>rks
       </div>
       </div>
-      {projectPairs.slice(0, 6).map((pair, index) => (
+      {projectPairs.map((pair, index) => (
         <WorkGallery
           key={pair[0].src}
           projects={pair}
@@ -33,7 +34,9 @@ export function WorkSection() {
         />
       ))}
       <div data-animate="fade-up" className="mt-10 flex justify-end md:mt-14">
-        <SectionLink href="/projects">All projects</SectionLink>
+        <SectionLink href="/projects">
+          <span>All pr<span className="playfair-0">o</span>jects</span>
+        </SectionLink>
       </div>
     </WorkAnimation>
   );

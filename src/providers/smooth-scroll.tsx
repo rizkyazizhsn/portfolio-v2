@@ -1,6 +1,7 @@
 "use client";
 
 import Lenis from "lenis";
+import { usePathname } from "next/navigation";
 import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useRef } from "react";
 
 type ScrollControls = {
@@ -11,6 +12,7 @@ type ScrollControls = {
 const ScrollContext = createContext<ScrollControls | null>(null)
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const instance = useRef<Lenis | null>(null)
   const locked = useRef<boolean>(false)
 
@@ -29,7 +31,8 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     const lenis = new Lenis({
       autoRaf: true,
       lerp: 0.1,
-      smoothWheel: true
+      smoothWheel: true,
+      stopInertiaOnNavigate: true,
     })
 
     instance.current = lenis
@@ -41,6 +44,20 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       instance.current = null
     }
   }, [])
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      // Preserve Next.js anchor navigation, while cancelling stale Lenis momentum.
+      const top = window.location.hash ? window.scrollY : 0;
+      instance.current?.resize();
+      instance.current?.scrollTo(top, { immediate: true, force: true });
+      if (!window.location.hash) {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      }
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [pathname]);
 
   const controls = useMemo(() => ({
     stopScroll, startScroll

@@ -52,7 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${roboto.variable} ${ppneumontreal.variable} ${geistMono.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col p-6">
+      <body className="min-h-full flex flex-col p-4 md:p-6">
         <SmoothScroll>
           {/* <CursorTrail /> */}
           {children}

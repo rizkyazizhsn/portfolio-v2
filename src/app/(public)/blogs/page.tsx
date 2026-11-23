@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function BlogsPage() {
   return (
     <PageShell>
-      <div className="pt-[12svh] pb-20">
+      <div className="pt-[6svh]">
         <SectionReveal>
           <Link href="/#blog" data-animate="fade-up"
             className="flex w-fit items-center gap-2 uppercase text-base mb-6 group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
@@ -38,7 +38,7 @@ export default function BlogsPage() {
           </div>
           <div data-animate="line" className="h-px bg-foreground/20 w-full mt-8 md:mt-20" />
         </SectionReveal>
-        <SectionReveal className="grid gap-6 py-10 md:grid-cols-3 md:py-16">
+        <SectionReveal className="grid gap-6 py-10 md:grid-cols-3 md:py-20">
           {posts.map((post) => (
             <BlogCard key={post.slug} post={post} headingLevel={2} />
           ))}

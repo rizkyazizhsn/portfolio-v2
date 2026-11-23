@@ -13,7 +13,7 @@ export default function ProjectsPage() {
 
   return (
     <PageShell>
-      <div className="pt-[12svh]">
+      <div className="pt-[6svh]">
         {/* button back */}
         <SectionReveal>
           <button

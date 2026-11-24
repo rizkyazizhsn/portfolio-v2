@@ -28,8 +28,7 @@ export function BlogSection() {
           <BlogCard key={post.slug} post={post} index={index} />
         ))}
       </div>
-      <div data-animate="fade-up" className="mt-8 flex flex-wrap items-center justify-between gap-6 md:mt-10">
-        <p className="text-sm text-foreground/40">Draft previews. Full articles coming soon.</p>
+      <div data-animate="fade-up" className="mt-8 flex flex-wrap items-center justify-end gap-6 md:mt-10">
         <SectionLink href="/blogs">
           <span>All p<span className="playfair-0">o</span>sts</span>
         </SectionLink>

@@ -14,17 +14,17 @@ export function WorkSection() {
 
   return (
     <WorkAnimation>
-      <h6 data-animate="fade-up" data-animate-at={0} data-animate-duration={timing.fadeDuration} className="uppercase">
-        the w<span className="playfair-0">o</span>k I d
+      <p data-animate="fade-up" data-animate-at={0} data-animate-duration={timing.fadeDuration} className="uppercase">
+        the w<span className="playfair-0">o</span>rk I d
         <span className="playfair-0">o</span>, and business I help.
-      </h6>
+      </p>
       <div className="overflow-hidden">
-        <div
+        <h2
           data-animate="reveal-up" data-animate-from={100} data-animate-at={timing.titleStart} data-animate-duration={timing.titleDuration}
-          className="text-6xl md:text-[180px] uppercase  leading-tight"
+          className="text-6xl md:text-[clamp(3.75rem,12.5vw,11.25rem)] uppercase leading-tight"
         >
           Selected W<span className="playfair-0">o</span>rks
-      </div>
+        </h2>
       </div>
       {projectPairs.map((pair, index) => (
         <WorkGallery

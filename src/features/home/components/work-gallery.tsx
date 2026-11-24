@@ -105,7 +105,7 @@ export function WorkGallery({ projects, reversed = false }: { projects: Project[
               />
             </div>
             <div className="text-base p-2.5">
-              <h6 className="text-base uppercase">{project.name}</h6>
+              <h3 className="text-base uppercase">{project.name}</h3>
               <p>{project.description}</p>
               <p>{project.year}</p>
             </div>

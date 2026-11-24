@@ -9,9 +9,12 @@ import { ReactNode, useRef } from "react"
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 type SectionRevealProps = {
+  as?: "section" | "header" | "figure" | "nav" | "aside"
   children: ReactNode
   id?: string
   className?: string
+  "aria-label"?: string
+  "aria-labelledby"?: string
   start?: string
   duration?: number
   stagger?: number
@@ -19,9 +22,12 @@ type SectionRevealProps = {
 }
 
 export function SectionReveal({
+  as: Tag = "section",
   children,
   id,
   className,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledBy,
   start = animationConfig.scrollStart,
   duration = animationConfig.duration,
   stagger = animationConfig.stagger,
@@ -117,13 +123,15 @@ export function SectionReveal({
   })
 
   return (
-    <section
+    <Tag
       ref={container}
       id={id}
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledBy}
       data-reveal-section
       className={className}  
     >
       {children}
-    </section>
+    </Tag>
   )
 }

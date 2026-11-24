@@ -32,12 +32,12 @@ export default function ProjectsPage() {
         <SectionReveal id="projects" stagger={0.2} duration={1}>
           <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] items-end gap-6">
             <div className="overflow-hidden leading-none">
-              <h1
+              <h2
                 data-animate="reveal-up"
                 className="text-5xl md:text-[7vw] uppercase"
               >
                 Pr<span className="playfair-0">o</span>jects
-              </h1>
+              </h2>
             </div>
             <div className="overflow-hidden">
               <h2

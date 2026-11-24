@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getCurrentYear } from "@/lib/current-year";
 import { HeroAnimation } from "./hero-animation";
+import { SplitTextHover } from "@/components/animations/split-text-hover";
 
 export async function HeroSection() {
   const currentYear = await getCurrentYear();
@@ -27,12 +28,12 @@ export async function HeroSection() {
       </div>
       {/* header top */}
       <div className="flex-between">
-        <h6 data-hero-fade className="text-base uppercase">
+        <p data-hero-fade className="text-base uppercase">
           RizkyAziz.w
           <span className="playfair-0">o</span>
           rk
-        </h6>
-        <h6 data-hero-fade className="text-base uppercase">
+        </p>
+        <p data-hero-fade className="text-base uppercase">
           P
           <span className="playfair-0">o</span>
           rtf
@@ -40,26 +41,26 @@ export async function HeroSection() {
           li
           <span className="playfair-0">o</span>
           <span className="ps-1">{ currentYear }</span>
-        </h6>
+        </p>
       </div>
       {/* header bottom */}
       <div className="header-bottom flex flex-col justify-between gap-8">
         <div className="flex-between">
-          <h6 data-hero-fade className="hidden md:block text-base uppercase">hi there</h6>
-          <h6 data-hero-fade className="text-xs md:text-base uppercase">I build thoughtful interfaces with precision, <br /> personality, and a focus on how they feel.</h6>
+          <p data-hero-fade className="hidden md:block text-base uppercase">hi there</p>
+          <p data-hero-fade className="text-xs md:text-base uppercase">I build thoughtful interfaces with precision, <br /> personality, and a focus on how they feel.</p>
         </div>
         <div data-hero-line className="h-px w-full bg-white/20" />
         {/* frontend engineer text */}
-        <div data-hero-parallax className="flex flex-col items-end">
-          <div className="overflow-hidden">
-            <h1 data-hero-title className="text-6xl md:text-[12vw] uppercase tracking-wide">Fr
+        <h1 data-hero-parallax className="flex flex-col items-end">
+          <span className="block overflow-hidden">
+            <span data-hero-title className="block text-6xl md:text-[12vw] uppercase tracking-wide">Fr
               <span className="playfair-0">o</span>
-              ntend</h1>
-          </div>
-          <div className="overflow-hidden md:-mt-5">
-            <h2 data-hero-title className="text-5xl md:text-[7.6vw] uppercase text-accent tracking-wide">Engineer</h2>
-          </div>
-        </div>
+              ntend</span>
+          </span>{" "}
+          <span className="block overflow-hidden md:-mt-5">
+            <span data-hero-title className="block text-5xl md:text-[7.6vw] uppercase text-accent tracking-wide">Engineer</span>
+          </span>
+        </h1>
       </div>
     </HeroAnimation>
   )

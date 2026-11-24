@@ -36,6 +36,6 @@ export const experiences: TimelineItem[] = [
     id: "experience-2025",
     year: 2025,
     title: "Frontend Engineer",
-    description: "Kolabora Group · Bandung · In-house",
+    description: "Kolabora Group · Tangerang · In-house",
   },
 ];

@@ -26,9 +26,9 @@ export default function BlogsPage() {
         <SectionReveal id="blogs" stagger={0.2} duration={1}>
           <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] items-end gap-6">
             <div className="overflow-hidden leading-none">
-              <h1 data-animate="reveal-up" className="text-5xl md:text-[7vw] uppercase">
+              <h2 data-animate="reveal-up" className="text-5xl md:text-[7vw] uppercase">
                 The j<span className="playfair-0">o</span>urnal
-              </h1>
+              </h2>
             </div>
             <div className="overflow-hidden">
               <p data-animate="reveal-up" className="md:text-[1.5vw] text-foreground/75">

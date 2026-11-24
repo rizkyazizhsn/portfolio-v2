@@ -38,6 +38,10 @@ body {
   @apply flex items-center justify-between;
 }
 
+@utility col-start {
+  @apply flex flex-col items-start justify-center;
+}
+
 @utility col-center {
   @apply flex flex-col items-center justify-center;
 }

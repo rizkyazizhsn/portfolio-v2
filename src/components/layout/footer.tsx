@@ -1,3 +1,4 @@
+import { SplitTextHover } from "../animations/split-text-hover";
 import { FooterAnimation } from "./footer-animation";
 import { getCurrentYear } from "@/lib/current-year";
 
@@ -36,19 +37,23 @@ export async function FooterSection() {
                 data-footer-fade
                 className="inline-block text-xs md:text-base uppercase"
               >
-                rizkyaziz.hsn@gmail.com
+                <SplitTextHover label="rizkyaziz.hsn@gmail.com">
+                  rizkyaziz.hsn@gmail.com
+                </SplitTextHover>
               </a>
             </div>
             <div className="space-y-1 flex flex-col">
               <h6 data-footer-fade className="inline-block text-base uppercase">
-                phone
+                ph<span className="playfair-0">o</span>ne
               </h6>
               <a
                 href="tel:+6285900443036"
                 data-footer-fade
                 className="inline-block text-xs md:text-base uppercase"
               >
-                +6285900443036
+                <SplitTextHover label="+6285900443036">
+                  +6285900443036
+                </SplitTextHover>
               </a>
             </div>
           </div>
@@ -62,7 +67,9 @@ export async function FooterSection() {
                 data-footer-fade
                 className="inline-block text-xs md:text-base uppercase"
               >
-                @rizky-aziz
+                <SplitTextHover label="@rizky-aziz">
+                  @rizky-aziz
+                </SplitTextHover>
               </a>
             </div>
             <div className="space-y-1 flex flex-col">
@@ -74,7 +81,9 @@ export async function FooterSection() {
                 data-footer-fade
                 className="inline-block text-xs md:text-base uppercase"
               >
-                @rizkyyazizz
+                <SplitTextHover label="@rizkyyazizz">
+                  @rizkyyazizz
+                </SplitTextHover>
               </a>
             </div>
           </div>
